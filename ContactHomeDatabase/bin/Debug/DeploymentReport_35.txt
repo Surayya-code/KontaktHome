@@ -1,0 +1,53 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[Categories]
+       [dbo].[Products]
+       [dbo].[SubCategories]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [dbo].[Categories].[UserId] is being dropped, data loss could occur.
+       The column [dbo].[Categories].[CreateUserId] on table [dbo].[Categories] must be added, but the column has no default
+         value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue
+         you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of
+         smart-defaults as a deployment option.
+       The column [dbo].[Categories].[SubCategoryId] on table [dbo].[Categories] must be added, but the column has no default
+         value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue
+         you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of
+         smart-defaults as a deployment option.
+       The column [dbo].[Products].[SubCategoryId] is being dropped, data loss could occur.
+       The type for column Image in table [dbo].[Products] is currently  NVARCHAR (255) NOT NULL but is being changed to 
+         VARCHAR (200) NOT NULL. Data loss could occur.
+       The column [dbo].[SubCategories].[CategoryId] is being dropped, data loss could occur.
+
+** User actions
+     Drop
+       unnamed constraint on [dbo].[Categories] (Default Constraint)
+       [dbo].[FK_Categories_Users] (Foreign Key)
+       [dbo].[FK_SubCategories_Categories1] (Foreign Key)
+       [dbo].[FK_Products_SubCategories1] (Foreign Key)
+       [dbo].[FK_Roles_Users] (Foreign Key)
+       [dbo].[FK_Users_Genders] (Foreign Key)
+       [dbo].[FK_Users_Roles] (Foreign Key)
+     Table rebuild
+       [dbo].[Categories] (Table)
+       [dbo].[Products] (Table)
+       [dbo].[SubCategories] (Table)
+     Create
+       [dbo].[Files] (Table)
+       Default Constraint: unnamed constraint on [dbo].[Files] (Default Constraint)
+       Foreign Key: unnamed constraint on [dbo].[Categories] (Foreign Key)
+
+** Supporting actions
+     Refresh
+       [dbo].[spSelectedItemsCategory] (Procedure)
+
+The column [dbo].[Categories].[UserId] is being dropped, data loss could occur.
+The column [dbo].[Categories].[CreateUserId] on table [dbo].[Categories] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column [dbo].[Categories].[SubCategoryId] on table [dbo].[Categories] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+The column [dbo].[Products].[SubCategoryId] is being dropped, data loss could occur.
+The type for column Image in table [dbo].[Products] is currently  NVARCHAR (255) NOT NULL but is being changed to  VARCHAR (200) NOT NULL. Data loss could occur.
+The column [dbo].[SubCategories].[CategoryId] is being dropped, data loss could occur.
+

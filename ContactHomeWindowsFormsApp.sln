@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactHomeWindowsFormsApp", "ContactHomeWindowsFormsApp\ContactHomeWindowsFormsApp.csproj", "{0F598F1D-0DC3-49AE-B58B-3456E4C7EDD4}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ContactHomeDatabase", "ContactHomeDatabase\ContactHomeDatabase.sqlproj", "{4B44FB5C-F2AE-4A6A-87D2-17BC69F3D488}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoManager", "P311 CryptoManager Solution\CryptoManager\CryptoManager.csproj", "{EFB89219-DFE4-4984-B3D6-48AF3FAD5719}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F598F1D-0DC3-49AE-B58B-3456E4C7EDD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F598F1D-0DC3-49AE-B58B-3456E4C7EDD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F598F1D-0DC3-49AE-B58B-3456E4C7EDD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F598F1D-0DC3-49AE-B58B-3456E4C7EDD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B44FB5C-F2AE-4A6A-87D2-17BC69F3D488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B44FB5C-F2AE-4A6A-87D2-17BC69F3D488}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B44FB5C-F2AE-4A6A-87D2-17BC69F3D488}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4B44FB5C-F2AE-4A6A-87D2-17BC69F3D488}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B44FB5C-F2AE-4A6A-87D2-17BC69F3D488}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B44FB5C-F2AE-4A6A-87D2-17BC69F3D488}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EFB89219-DFE4-4984-B3D6-48AF3FAD5719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFB89219-DFE4-4984-B3D6-48AF3FAD5719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFB89219-DFE4-4984-B3D6-48AF3FAD5719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFB89219-DFE4-4984-B3D6-48AF3FAD5719}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FE94E3F-D72F-4446-9F66-2D6D8A73B81A}
+	EndGlobalSection
+EndGlobal

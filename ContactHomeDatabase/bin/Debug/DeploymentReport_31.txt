@@ -1,0 +1,33 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[Categories]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [dbo].[Categories].[CreateAdminId] is being dropped, data loss could occur.
+       The column [dbo].[Categories].[SubCategoryId] is being dropped, data loss could occur.
+       The column [dbo].[Categories].[CreateUserId] on table [dbo].[Categories] must be added, but the column has no default
+         value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue
+         you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of
+         smart-defaults as a deployment option.
+
+** User actions
+     Drop
+       [dbo].[DF__Categorie__Creat__628FA481] (Default Constraint)
+     Table rebuild
+       [dbo].[Categories] (Table)
+     Create
+       [dbo].[Files] (Table)
+       [dbo].[Products] (Table)
+       Default Constraint: unnamed constraint on [dbo].[Files] (Default Constraint)
+
+** Supporting actions
+     Refresh
+       [dbo].[spSelectedItemsCategory] (Procedure)
+
+The column [dbo].[Categories].[CreateAdminId] is being dropped, data loss could occur.
+The column [dbo].[Categories].[SubCategoryId] is being dropped, data loss could occur.
+The column [dbo].[Categories].[CreateUserId] on table [dbo].[Categories] must be added, but the column has no default value and does not allow NULL values. If the table contains data, the ALTER script will not work. To avoid this issue you must either: add a default value to the column, mark it as allowing NULL values, or enable the generation of smart-defaults as a deployment option.
+

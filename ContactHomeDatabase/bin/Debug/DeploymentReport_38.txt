@@ -1,0 +1,28 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[Products]
+       [dbo].[SubCategories]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The type for column Image in table [dbo].[Products] is currently  NVARCHAR (255) NOT NULL but is being changed to 
+         VARCHAR (200) NOT NULL. Data loss could occur.
+
+** User actions
+     Drop
+       [dbo].[FK_Products_SubCategories1] (Foreign Key)
+       [dbo].[FK_Roles_Users] (Foreign Key)
+       [dbo].[FK_SubCategories_Categories1] (Foreign Key)
+     Table rebuild
+       [dbo].[Products] (Table)
+       [dbo].[SubCategories] (Table)
+     Create
+       [dbo].[FK_Products_SubCategories] (Foreign Key)
+       [dbo].[FK_SubCategories_Category] (Foreign Key)
+
+** Supporting actions
+
+The type for column Image in table [dbo].[Products] is currently  NVARCHAR (255) NOT NULL but is being changed to  VARCHAR (200) NOT NULL. Data loss could occur.
+

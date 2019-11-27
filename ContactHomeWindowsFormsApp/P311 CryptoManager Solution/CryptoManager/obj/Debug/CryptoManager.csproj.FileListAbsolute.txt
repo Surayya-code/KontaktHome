@@ -1,0 +1,10 @@
+C:\Users\Senior\source\repos\P311 Solution\Calculator\bin\Debug\CryptoManager.exe.config
+C:\Users\Senior\source\repos\P311 Solution\Calculator\bin\Debug\CryptoManager.exe
+C:\Users\Senior\source\repos\P311 Solution\Calculator\bin\Debug\CryptoManager.pdb
+C:\Users\Senior\source\repos\P311 Solution\Calculator\obj\Debug\CryptoManager.csprojAssemblyReference.cache
+C:\Users\Senior\source\repos\P311 Solution\Calculator\obj\Debug\CryptoManager.CryptoForm.resources
+C:\Users\Senior\source\repos\P311 Solution\Calculator\obj\Debug\CryptoManager.Properties.Resources.resources
+C:\Users\Senior\source\repos\P311 Solution\Calculator\obj\Debug\CryptoManager.csproj.GenerateResource.cache
+C:\Users\Senior\source\repos\P311 Solution\Calculator\obj\Debug\CryptoManager.csproj.CoreCompileInputs.cache
+C:\Users\Senior\source\repos\P311 Solution\Calculator\obj\Debug\CryptoManager.exe
+C:\Users\Senior\source\repos\P311 Solution\Calculator\obj\Debug\CryptoManager.pdb

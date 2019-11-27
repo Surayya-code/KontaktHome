@@ -1,0 +1,9 @@
+C:\Users\Senior\source\repos\P311 Solution\Calculator\obj\Debug\Calculator.CryptoForm.resources
+C:\Users\Senior\source\repos\P311 Solution\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+C:\Users\Senior\source\repos\P311 Solution\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+C:\Users\Senior\source\repos\P311 Solution\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+C:\Users\Senior\source\repos\P311 Solution\Calculator\bin\Debug\Calculator.exe.config
+C:\Users\Senior\source\repos\P311 Solution\Calculator\bin\Debug\Calculator.exe
+C:\Users\Senior\source\repos\P311 Solution\Calculator\bin\Debug\Calculator.pdb
+C:\Users\Senior\source\repos\P311 Solution\Calculator\obj\Debug\Calculator.exe
+C:\Users\Senior\source\repos\P311 Solution\Calculator\obj\Debug\Calculator.pdb

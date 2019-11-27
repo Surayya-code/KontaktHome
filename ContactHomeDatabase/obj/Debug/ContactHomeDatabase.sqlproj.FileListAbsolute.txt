@@ -1,0 +1,9 @@
+C:\Users\suray\source\repos\ContactHomeWindowsFormsApp\ContactHomeDatabase\bin\Debug\ContactHomeDatabase.dacpac
+C:\Users\suray\source\repos\ContactHomeWindowsFormsApp\ContactHomeDatabase\bin\Debug\ContactHomeDatabase.dll
+C:\Users\suray\source\repos\ContactHomeWindowsFormsApp\ContactHomeDatabase\bin\Debug\ContactHomeDatabase.pdb
+C:\Users\suray\source\repos\ContactHomeWindowsFormsApp\ContactHomeDatabase\obj\Debug\ContactHomeDatabase.dll
+C:\Users\suray\source\repos\ContactHomeWindowsFormsApp\ContactHomeDatabase\obj\Debug\ContactHomeDatabase.pdb
+C:\Users\suray\source\repos\ContactHomeWindowsFormsApp\ContactHomeDatabase\obj\Debug\Model.xml
+C:\Users\suray\source\repos\ContactHomeWindowsFormsApp\ContactHomeDatabase\obj\Debug\refactor.xml
+C:\Users\suray\source\repos\ContactHomeWindowsFormsApp\ContactHomeDatabase\obj\Debug\postdeploy.sql
+C:\Users\suray\source\repos\ContactHomeWindowsFormsApp\ContactHomeDatabase\obj\Debug\predeploy.sql
