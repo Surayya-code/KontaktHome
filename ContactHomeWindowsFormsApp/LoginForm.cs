@@ -71,20 +71,21 @@ namespace ContactHomeWindowsFormsApp
                 spCheckUserRow user = DataSet.spCheckUser.FirstOrDefault();
 
                 Program.UserId = user.Id;
+                //Program.CategoryId =Category.Id;
 
                 switch (user.RoleId)
                 {
                     case 1:
                         //admin
                        
-                        using (var frm=new Admin.MainForm())
+                        using (var frm=new Admin.AdminMainForm())
                         {
                             frm.ShowDialog();
                         }
                         break;
                     case 2:
                         //admin
-                        using (var frm = new User.MainForm())
+                        using (var frm = new User.UserMainForm())
                         {
                             frm.ShowDialog();
                         }

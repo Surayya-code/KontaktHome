@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace ContactHomeWindowsFormsApp.Admin
 {
-    public partial class MainForm : Form
+    public partial class AdminMainForm : Form
     {
-        public MainForm()
+        public AdminMainForm()
         {
             InitializeComponent();
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -37,7 +38,15 @@ namespace ContactHomeWindowsFormsApp.Admin
 
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
-            using (var frm =new Categories())
+            using (var frm =new CategoriesForm())
+            {
+                frm.ShowDialog();
+            }
+        }
+
+         private void btnAddSubCtg_Click(object sender, EventArgs e)
+        {
+            using (var frm = new SubCategory())
             {
                 frm.ShowDialog();
             }

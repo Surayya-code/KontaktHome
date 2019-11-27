@@ -1,0 +1,30 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Categories] (Table)
+       [dbo].[Genders] (Table)
+       [dbo].[Products] (Table)
+       [dbo].[Roles] (Table)
+       [dbo].[SubCategories] (Table)
+       [dbo].[Users] (Table)
+       Default Constraint: unnamed constraint on [dbo].[Categories] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Genders] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Roles] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Users] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Users] (Default Constraint)
+       [dbo].[FK_Categories_Users] (Foreign Key)
+       [dbo].[FK_Products_SubCategories] (Foreign Key)
+       [dbo].[FK_SubCategories_Category] (Foreign Key)
+       [dbo].[FK_Users_Genders] (Foreign Key)
+       [dbo].[FK_Users_Roles] (Foreign Key)
+
+** Supporting actions

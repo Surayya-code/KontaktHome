@@ -1,10 +1,12 @@
 ﻿CREATE PROCEDURE [dbo].[spAddImage]
-	@imageName nvarchar(200),
-	@imageContent image,
-	@CreateUserId int
+	@Name nvarchar(150),
+	@Price int,
+	@Description nvarchar,
+	@image varchar (200),
+	@SubCategoryId int
 AS
 begin
-	insert into dbo.[Files] ([Name],[ImageContent],[CreateUserId])
-	values (@imageName,@imageContent,@CreateUserId)
+	insert into dbo.[Products] ([Name],[Price],[Description],[Image],[SubCategoryId])
+	values (@Name,@Price,@Description,@image,@SubCategoryId)
 end
 

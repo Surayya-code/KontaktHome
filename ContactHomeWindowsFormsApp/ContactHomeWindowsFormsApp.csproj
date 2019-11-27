@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,11 +67,17 @@
     <Compile Include="Admin\Categories.Designer.cs">
       <DependentUpon>Categories.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\MainForm.cs">
+    <Compile Include="Admin\AdminMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="Admin\AdminMainForm.Designer.cs">
+      <DependentUpon>AdminMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SubCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\SubCategory.Designer.cs">
+      <DependentUpon>SubCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\Controls\Product.cs">
       <SubType>UserControl</SubType>
@@ -67,6 +88,9 @@
     <Compile Include="Core\Extensions\DataExtension.cs" />
     <Compile Include="Core\Extensions\UIExtensions.cs" />
     <Compile Include="Core\Extensions\Crypto.cs" />
+    <Compile Include="Data\ContactHomeDataSet.cs">
+      <DependentUpon>ContactHomeDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Data\ContactHomeDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -87,17 +111,20 @@
     <Compile Include="User\HomePageForm.Designer.cs">
       <DependentUpon>HomePageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="User\MainForm.cs">
+    <Compile Include="User\UserMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="User\UserMainForm.Designer.cs">
+      <DependentUpon>UserMainForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Admin\Categories.resx">
       <DependentUpon>Categories.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\AdminMainForm.resx">
+      <DependentUpon>AdminMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\SubCategory.resx">
+      <DependentUpon>SubCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Core\Controls\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
@@ -117,8 +144,8 @@
     <EmbeddedResource Include="User\HomePageForm.resx">
       <DependentUpon>HomePageForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="User\UserMainForm.resx">
+      <DependentUpon>UserMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Data\ContactHomeDataSet.xsc">
       <DependentUpon>ContactHomeDataSet.xsd</DependentUpon>
@@ -144,6 +171,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

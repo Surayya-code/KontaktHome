@@ -13,41 +13,42 @@ using System.Windows.Forms;
 
 namespace ContactHomeWindowsFormsApp.User
 {
-    public partial class MainForm : Form
+    public partial class UserMainForm : Form
     {
-        public MainForm()
+        public UserMainForm()
         {
             InitializeComponent();
+            
         }
 
 
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            categoriesTableAdapter1.Fill(DataSet.Categories);
+        //private void btnAdd_Click(object sender, EventArgs e)//category check boxA elave etmek
+        //{
+        //    categoriesTableAdapter1.Fill(DataSet.Categories);
 
-            checkedListBox1.Items.Clear();
-            foreach (var item in DataSet.Categories)
-            {
-                var category = new Category();
-                category.Id = item.Id;
-                category.Name = item.Name;
-                checkedListBox1.Items.Add(category);
-            }
-        }
+        //    //checkedListBox1.Items.Clear();
+        //    //foreach (var item in DataSet.Categories)
+        //    //{
+        //    //    var category = new Category();
+        //    //    category.Id = item.Id;
+        //    //    category.Name = item.Name;
+        //    //    checkedListBox1.Items.Add(category);
+        //    //}
+        //}
 
 
-        private void btnSelected_Click(object sender, EventArgs e)
-        {
-            StringBuilder builder= new StringBuilder();
+        //private void btnSelected_Click(object sender, EventArgs e)
+        //{
+        //    StringBuilder builder= new StringBuilder();
 
-            foreach (Category category in checkedListBox1.CheckedItems)
-            {
+        //    foreach (Category category in checkedListBox1.CheckedItems)
+        //    {
                 
-                builder.Append($",{category.Id}");//////id niye qebul elemirsen a bala? men ki sene id teyin etmisim//
-            }
-            MessageBox.Show(builder.ToString().Substring(1));
-        }
+        //        builder.Append($",{category.Id}");//////id niye qebul elemirsen a bala? men ki sene id teyin etmisim//
+        //    }
+        //    MessageBox.Show(builder.ToString().Substring(1));
+        //}
 
         private void btnSetas_Click(object sender, EventArgs e)
         {
@@ -97,8 +98,10 @@ namespace ContactHomeWindowsFormsApp.User
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DataSet.VwFiles' table. You can move, or remove it, as needed.
-            //this.vwFilesTableAdapter.Fill(this.DataSet.VwFiles);
+            // TODO: This line of code loads data into the 'DataSet.VwProducts' table. You can move, or remove it, as needed.
+            this.vwProductsTableAdapter.Fill(this.DataSet.VwProducts);
+            //TODO: This line of code loads data into the 'DataSet.VwFiles' table.You can move, or remove it, as needed.
+            //this.vwFTableAdapter.Fill(this.DataSet.VwFiles);
 
         }
 

@@ -30,24 +30,23 @@ namespace ContactHomeWindowsFormsApp.Core.Extensions
             RoundControl((Control)form, width, height, widthEllipse, heightEllipse);
         }
 
-        //static public void InitGrid(this DataGrid gridView)
-        //{
-        //    gridView.AllowUserToRows = false;
-        //    gridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        static public void InitGrid(this DataGridView gridView)
+        {
+            gridView.AllowUserToAddRows = false;
+            gridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-        //    foreach (var column in gridView.Columns)
-        //    {
-        //        if (column is DataGridWiewTextBoxColumn)
-        //        {
-        //           (column as DataGridWiewTextBoxColumn).ReadOnly = true;
+            foreach (var column in gridView.Columns)
+            {
+                if (column is DataGridViewTextBoxColumn)
+                {
+                    (column as DataGridViewTextBoxColumn).ReadOnly = true;
 
-        //            if ((column as DataGridWiewTextBoxColumn).HeaderText.Contains("Id"))
-        //                (column as DataGridWiewTextBoxColumn).Visible = false;
-                    
-                    
-        //        }
-        //    }
-        //}
+                    if ((column as DataGridViewTextBoxColumn).HeaderText.Contains("Id"))
+                        (column as DataGridViewTextBoxColumn).Visible = false;
+
+                }
+            }
+        }
 
 
     }

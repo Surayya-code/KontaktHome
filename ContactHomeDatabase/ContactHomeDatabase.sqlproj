@@ -70,6 +70,7 @@
     <Build Include="Procedures\spAddImage.sql" />
     <Build Include="Tables\Products.sql" />
     <Build Include="Tables\SubCategories.sql" />
+    <Build Include="View\VwProducts.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Init.sql" />
