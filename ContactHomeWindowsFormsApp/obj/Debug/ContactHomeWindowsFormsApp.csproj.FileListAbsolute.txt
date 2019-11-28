@@ -27,3 +27,4 @@ C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\Con
 C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.pdb
 C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.Admin.SubCategory.resources
 C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.Admin.CategoriesForm.resources
+C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.Admin.All_Products.resources

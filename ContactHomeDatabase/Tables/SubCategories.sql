@@ -5,6 +5,7 @@
 	[CategoryId] int not null,
 	CreateUserId int not null,
 	CreateDate datetime not null default getdate(),
+	DeleteDate datetime,
     CONSTRAINT [FK_SubCategories_Category] FOREIGN KEY (CategoryId) 
 	REFERENCES [Categories]([Id]),
 )

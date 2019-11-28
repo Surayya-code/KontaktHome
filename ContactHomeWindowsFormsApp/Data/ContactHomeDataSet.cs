@@ -7,9 +7,12 @@
     }
 }
 
-namespace ContactHomeWindowsFormsApp.Data.ContactHomeDataSetTableAdapters {
-    
-    
+namespace ContactHomeWindowsFormsApp.Data.ContactHomeDataSetTableAdapters
+{
+    partial class ProductsTableAdapter
+    {
+    }
+
     public partial class CategoriesTableAdapter {
     }
 }

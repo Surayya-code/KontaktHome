@@ -40,8 +40,6 @@ namespace ContactHomeWindowsFormsApp.Data {
         
         private VwProductsDataTable tableVwProducts;
         
-        private global::System.Data.DataRelation relationFK_Products_SubCategories;
-        
         private global::System.Data.DataRelation relationFK_SubCategories_Category;
         
         private global::System.Data.DataRelation relationFK_Categories_Users;
@@ -51,6 +49,8 @@ namespace ContactHomeWindowsFormsApp.Data {
         private global::System.Data.DataRelation relationFK_Users_Roles;
         
         private global::System.Data.DataRelation relationFK_Categories_Users1;
+        
+        private global::System.Data.DataRelation relationFK_Products_SubCategories;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -374,12 +374,12 @@ namespace ContactHomeWindowsFormsApp.Data {
                     this.tableVwProducts.InitVars();
                 }
             }
-            this.relationFK_Products_SubCategories = this.Relations["FK_Products_SubCategories"];
             this.relationFK_SubCategories_Category = this.Relations["FK_SubCategories_Category"];
             this.relationFK_Categories_Users = this.Relations["FK_Categories_Users"];
             this.relationFK_Users_Genders = this.Relations["FK_Users_Genders"];
             this.relationFK_Users_Roles = this.Relations["FK_Users_Roles"];
             this.relationFK_Categories_Users1 = this.Relations["FK_Categories_Users1"];
+            this.relationFK_Products_SubCategories = this.Relations["FK_Products_SubCategories"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -406,10 +406,6 @@ namespace ContactHomeWindowsFormsApp.Data {
             base.Tables.Add(this.tableUsers);
             this.tableVwProducts = new VwProductsDataTable();
             base.Tables.Add(this.tableVwProducts);
-            this.relationFK_Products_SubCategories = new global::System.Data.DataRelation("FK_Products_SubCategories", new global::System.Data.DataColumn[] {
-                        this.tableSubCategories.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableProducts.SubCategoryIdColumn}, false);
-            this.Relations.Add(this.relationFK_Products_SubCategories);
             this.relationFK_SubCategories_Category = new global::System.Data.DataRelation("FK_SubCategories_Category", new global::System.Data.DataColumn[] {
                         this.tableCategories.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableSubCategories.CategoryIdColumn}, false);
@@ -430,6 +426,10 @@ namespace ContactHomeWindowsFormsApp.Data {
                         this.tableUsers.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableSubCategories.CreateUserIdColumn}, false);
             this.Relations.Add(this.relationFK_Categories_Users1);
+            this.relationFK_Products_SubCategories = new global::System.Data.DataRelation("FK_Products_SubCategories", new global::System.Data.DataColumn[] {
+                        this.tableSubCategories.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableProducts.SubCategoryIdColumn}, false);
+            this.Relations.Add(this.relationFK_Products_SubCategories);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1648,9 +1648,17 @@ namespace ContactHomeWindowsFormsApp.Data {
             
             private global::System.Data.DataColumn columnDescription;
             
+            private global::System.Data.DataColumn columnSubCategoryId;
+            
+            private global::System.Data.DataColumn columnCategoryId;
+            
+            private global::System.Data.DataColumn columnCategoryName;
+            
+            private global::System.Data.DataColumn columnSubcategoryName;
+            
             private global::System.Data.DataColumn columnImage;
             
-            private global::System.Data.DataColumn columnSubCategoryId;
+            private global::System.Data.DataColumn columnDeleteDate;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1719,6 +1727,38 @@ namespace ContactHomeWindowsFormsApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SubCategoryIdColumn {
+                get {
+                    return this.columnSubCategoryId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CategoryIdColumn {
+                get {
+                    return this.columnCategoryId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CategoryNameColumn {
+                get {
+                    return this.columnCategoryName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SubcategoryNameColumn {
+                get {
+                    return this.columnSubcategoryName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn ImageColumn {
                 get {
                     return this.columnImage;
@@ -1727,9 +1767,9 @@ namespace ContactHomeWindowsFormsApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn SubCategoryIdColumn {
+            public global::System.Data.DataColumn DeleteDateColumn {
                 get {
-                    return this.columnSubCategoryId;
+                    return this.columnDeleteDate;
                 }
             }
             
@@ -1770,17 +1810,21 @@ namespace ContactHomeWindowsFormsApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ProductsRow AddProductsRow(string Name, int Price, string Description, string Image, SubCategoriesRow parentSubCategoriesRowByFK_Products_SubCategories) {
+            public ProductsRow AddProductsRow(string Name, int Price, string Description, SubCategoriesRow parentSubCategoriesRowByFK_Products_SubCategories, int CategoryId, string CategoryName, string SubcategoryName, byte[] Image, System.DateTime DeleteDate) {
                 ProductsRow rowProductsRow = ((ProductsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Name,
                         Price,
                         Description,
+                        null,
+                        CategoryId,
+                        CategoryName,
+                        SubcategoryName,
                         Image,
-                        null};
+                        DeleteDate};
                 if ((parentSubCategoriesRowByFK_Products_SubCategories != null)) {
-                    columnValuesArray[5] = parentSubCategoriesRowByFK_Products_SubCategories[0];
+                    columnValuesArray[4] = parentSubCategoriesRowByFK_Products_SubCategories[0];
                 }
                 rowProductsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProductsRow);
@@ -1815,8 +1859,12 @@ namespace ContactHomeWindowsFormsApp.Data {
                 this.columnName = base.Columns["Name"];
                 this.columnPrice = base.Columns["Price"];
                 this.columnDescription = base.Columns["Description"];
-                this.columnImage = base.Columns["Image"];
                 this.columnSubCategoryId = base.Columns["SubCategoryId"];
+                this.columnCategoryId = base.Columns["CategoryId"];
+                this.columnCategoryName = base.Columns["CategoryName"];
+                this.columnSubcategoryName = base.Columns["SubcategoryName"];
+                this.columnImage = base.Columns["Image"];
+                this.columnDeleteDate = base.Columns["DeleteDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1830,10 +1878,18 @@ namespace ContactHomeWindowsFormsApp.Data {
                 base.Columns.Add(this.columnPrice);
                 this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDescription);
-                this.columnImage = new global::System.Data.DataColumn("Image", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnImage);
                 this.columnSubCategoryId = new global::System.Data.DataColumn("SubCategoryId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSubCategoryId);
+                this.columnCategoryId = new global::System.Data.DataColumn("CategoryId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCategoryId);
+                this.columnCategoryName = new global::System.Data.DataColumn("CategoryName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCategoryName);
+                this.columnSubcategoryName = new global::System.Data.DataColumn("SubcategoryName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubcategoryName);
+                this.columnImage = new global::System.Data.DataColumn("Image", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImage);
+                this.columnDeleteDate = new global::System.Data.DataColumn("DeleteDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDeleteDate);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -1847,9 +1903,13 @@ namespace ContactHomeWindowsFormsApp.Data {
                 this.columnPrice.AllowDBNull = false;
                 this.columnDescription.AllowDBNull = false;
                 this.columnDescription.MaxLength = 2147483647;
-                this.columnImage.AllowDBNull = false;
-                this.columnImage.MaxLength = 200;
                 this.columnSubCategoryId.AllowDBNull = false;
+                this.columnCategoryId.AllowDBNull = false;
+                this.columnCategoryName.AllowDBNull = false;
+                this.columnCategoryName.MaxLength = 150;
+                this.columnSubcategoryName.AllowDBNull = false;
+                this.columnSubcategoryName.MaxLength = 150;
+                this.columnImage.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2315,7 +2375,11 @@ namespace ContactHomeWindowsFormsApp.Data {
             
             private global::System.Data.DataColumn columnCreateDate;
             
-            private global::System.Data.DataColumn columnCategoryName;
+            private global::System.Data.DataColumn columnDeleteDate;
+            
+            private global::System.Data.DataColumn columnCategory;
+            
+            private global::System.Data.DataColumn columnUser;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -2392,9 +2456,25 @@ namespace ContactHomeWindowsFormsApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CategoryNameColumn {
+            public global::System.Data.DataColumn DeleteDateColumn {
                 get {
-                    return this.columnCategoryName;
+                    return this.columnDeleteDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CategoryColumn {
+                get {
+                    return this.columnCategory;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn UserColumn {
+                get {
+                    return this.columnUser;
                 }
             }
             
@@ -2435,7 +2515,7 @@ namespace ContactHomeWindowsFormsApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SubCategoriesRow AddSubCategoriesRow(string Name, CategoriesRow parentCategoriesRowByFK_SubCategories_Category, UsersRow parentUsersRowByFK_Categories_Users1, System.DateTime CreateDate, string CategoryName) {
+            public SubCategoriesRow AddSubCategoriesRow(string Name, CategoriesRow parentCategoriesRowByFK_SubCategories_Category, UsersRow parentUsersRowByFK_Categories_Users1, System.DateTime CreateDate, System.DateTime DeleteDate, string Category, string User) {
                 SubCategoriesRow rowSubCategoriesRow = ((SubCategoriesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2443,7 +2523,9 @@ namespace ContactHomeWindowsFormsApp.Data {
                         null,
                         null,
                         CreateDate,
-                        CategoryName};
+                        DeleteDate,
+                        Category,
+                        User};
                 if ((parentCategoriesRowByFK_SubCategories_Category != null)) {
                     columnValuesArray[2] = parentCategoriesRowByFK_SubCategories_Category[0];
                 }
@@ -2484,7 +2566,9 @@ namespace ContactHomeWindowsFormsApp.Data {
                 this.columnCategoryId = base.Columns["CategoryId"];
                 this.columnCreateUserId = base.Columns["CreateUserId"];
                 this.columnCreateDate = base.Columns["CreateDate"];
-                this.columnCategoryName = base.Columns["CategoryName"];
+                this.columnDeleteDate = base.Columns["DeleteDate"];
+                this.columnCategory = base.Columns["Category"];
+                this.columnUser = base.Columns["User"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2500,8 +2584,12 @@ namespace ContactHomeWindowsFormsApp.Data {
                 base.Columns.Add(this.columnCreateUserId);
                 this.columnCreateDate = new global::System.Data.DataColumn("CreateDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCreateDate);
-                this.columnCategoryName = new global::System.Data.DataColumn("CategoryName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCategoryName);
+                this.columnDeleteDate = new global::System.Data.DataColumn("DeleteDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDeleteDate);
+                this.columnCategory = new global::System.Data.DataColumn("Category", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCategory);
+                this.columnUser = new global::System.Data.DataColumn("User", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -2511,12 +2599,12 @@ namespace ContactHomeWindowsFormsApp.Data {
                 this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
                 this.columnName.AllowDBNull = false;
-                this.columnName.MaxLength = 150;
                 this.columnCategoryId.AllowDBNull = false;
                 this.columnCreateUserId.AllowDBNull = false;
                 this.columnCreateDate.AllowDBNull = false;
-                this.columnCategoryName.AllowDBNull = false;
-                this.columnCategoryName.MaxLength = 150;
+                this.columnCategory.AllowDBNull = false;
+                this.columnUser.ReadOnly = true;
+                this.columnUser.MaxLength = 151;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3821,9 +3909,53 @@ namespace ContactHomeWindowsFormsApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Image {
+            public int SubCategoryId {
                 get {
-                    return ((string)(this[this.tableProducts.ImageColumn]));
+                    return ((int)(this[this.tableProducts.SubCategoryIdColumn]));
+                }
+                set {
+                    this[this.tableProducts.SubCategoryIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int CategoryId {
+                get {
+                    return ((int)(this[this.tableProducts.CategoryIdColumn]));
+                }
+                set {
+                    this[this.tableProducts.CategoryIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CategoryName {
+                get {
+                    return ((string)(this[this.tableProducts.CategoryNameColumn]));
+                }
+                set {
+                    this[this.tableProducts.CategoryNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string SubcategoryName {
+                get {
+                    return ((string)(this[this.tableProducts.SubcategoryNameColumn]));
+                }
+                set {
+                    this[this.tableProducts.SubcategoryNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte[] Image {
+                get {
+                    return ((byte[])(this[this.tableProducts.ImageColumn]));
                 }
                 set {
                     this[this.tableProducts.ImageColumn] = value;
@@ -3832,12 +3964,17 @@ namespace ContactHomeWindowsFormsApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int SubCategoryId {
+            public System.DateTime DeleteDate {
                 get {
-                    return ((int)(this[this.tableProducts.SubCategoryIdColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tableProducts.DeleteDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DeleteDate\' in table \'Products\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableProducts.SubCategoryIdColumn] = value;
+                    this[this.tableProducts.DeleteDateColumn] = value;
                 }
             }
             
@@ -3850,6 +3987,18 @@ namespace ContactHomeWindowsFormsApp.Data {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Products_SubCategories"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDeleteDateNull() {
+                return this.IsNull(this.tableProducts.DeleteDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDeleteDateNull() {
+                this[this.tableProducts.DeleteDateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4022,12 +4171,44 @@ namespace ContactHomeWindowsFormsApp.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CategoryName {
+            public System.DateTime DeleteDate {
                 get {
-                    return ((string)(this[this.tableSubCategories.CategoryNameColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tableSubCategories.DeleteDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DeleteDate\' in table \'SubCategories\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableSubCategories.CategoryNameColumn] = value;
+                    this[this.tableSubCategories.DeleteDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Category {
+                get {
+                    return ((string)(this[this.tableSubCategories.CategoryColumn]));
+                }
+                set {
+                    this[this.tableSubCategories.CategoryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string User {
+                get {
+                    try {
+                        return ((string)(this[this.tableSubCategories.UserColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User\' in table \'SubCategories\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSubCategories.UserColumn] = value;
                 }
             }
             
@@ -4051,6 +4232,30 @@ namespace ContactHomeWindowsFormsApp.Data {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Categories_Users1"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDeleteDateNull() {
+                return this.IsNull(this.tableSubCategories.DeleteDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDeleteDateNull() {
+                this[this.tableSubCategories.DeleteDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsUserNull() {
+                return this.IsNull(this.tableSubCategories.UserColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetUserNull() {
+                this[this.tableSubCategories.UserColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5820,48 +6025,13 @@ SELECT Id, Name, CreateUserId, CreateDate, DeleteDate FROM Genders WHERE (Id = @
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Price", "Price");
             tableMapping.ColumnMappings.Add("Description", "Description");
-            tableMapping.ColumnMappings.Add("Image", "Image");
             tableMapping.ColumnMappings.Add("SubCategoryId", "SubCategoryId");
+            tableMapping.ColumnMappings.Add("CategoryId", "CategoryId");
+            tableMapping.ColumnMappings.Add("CategoryName", "CategoryName");
+            tableMapping.ColumnMappings.Add("SubcategoryName", "SubcategoryName");
+            tableMapping.ColumnMappings.Add("Image", "Image");
+            tableMapping.ColumnMappings.Add("DeleteDate", "DeleteDate");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Products] WHERE (([Id] = @Original_Id) AND ([Name] = @Original" +
-                "_Name) AND ([Price] = @Original_Price) AND ([Image] = @Original_Image) AND ([Sub" +
-                "CategoryId] = @Original_SubCategoryId))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Image", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SubCategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubCategoryId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Products] ([Name], [Price], [Description], [Image], [SubCatego" +
-                "ryId]) VALUES (@Name, @Price, @Description, @Image, @SubCategoryId);\r\nSELECT Id," +
-                " Name, Price, Description, Image, SubCategoryId FROM Products WHERE (Id = SCOPE_" +
-                "IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubCategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubCategoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Products] SET [Name] = @Name, [Price] = @Price, [Description] = @Description, [Image] = @Image, [SubCategoryId] = @SubCategoryId WHERE (([Id] = @Original_Id) AND ([Name] = @Original_Name) AND ([Price] = @Original_Price) AND ([Image] = @Original_Image) AND ([SubCategoryId] = @Original_SubCategoryId));
-SELECT Id, Name, Price, Description, Image, SubCategoryId FROM Products WHERE (Id = @Id)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubCategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubCategoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Image", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SubCategoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubCategoryId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5874,11 +6044,39 @@ SELECT Id, Name, Price, Description, Image, SubCategoryId FROM Products WHERE (I
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Name, Price, Description, Image, SubCategoryId FROM dbo.Products";
+            this._commandCollection[0].CommandText = @"SELECT p.[Id]
+      ,p.[Name]
+      ,p.[Price]
+      ,p.[Description]
+      ,p.[Image]
+      ,p.[DeleteDate]
+      ,p.[SubCategoryId]
+	  ,s.[Name] as SubcategoryName
+	  ,s.[CategoryId]
+	  ,c.[Name] as CategoryName
+  FROM [dbo].[Products] p
+join [dbo].[SubCategories] s on s.Id=p.SubCategoryId
+join [dbo].[Categories] c on c.Id=p.SubCategoryId";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "INSERT INTO Products\r\n           (Name,Price,Description,Image,SubCategoryId)\r\nVA" +
+                "LUES        (@Name,@Price,@Description,@Image,@SubCategoryId)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.Image, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubCategoryId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SubCategoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "UPDATE [dbo].[Products]\r\n   SET \r\n      [DeleteDate] = getdate()\r\n WHERE [Id]=@Id" +
+                "";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5908,172 +6106,68 @@ SELECT Id, Name, Price, Description, Image, SubCategoryId FROM Products WHERE (I
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ContactHomeDataSet.ProductsDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ContactHomeDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Products");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, string Original_Name, int Original_Price, string Original_Image, int Original_SubCategoryId) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Name));
-            }
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Price));
-            if ((Original_Image == null)) {
-                throw new global::System.ArgumentNullException("Original_Image");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Image));
-            }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_SubCategoryId));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Name, int Price, string Description, string Image, int SubCategoryId) {
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int AddProduct(string Name, int Price, string Description, byte[] Image, int SubCategoryId) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             if ((Name == null)) {
                 throw new global::System.ArgumentNullException("Name");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Name));
+                command.Parameters[0].Value = ((string)(Name));
             }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(Price));
+            command.Parameters[1].Value = ((int)(Price));
             if ((Description == null)) {
                 throw new global::System.ArgumentNullException("Description");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Description));
+                command.Parameters[2].Value = ((string)(Description));
             }
             if ((Image == null)) {
                 throw new global::System.ArgumentNullException("Image");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Image));
+                command.Parameters[3].Value = ((byte[])(Image));
             }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(SubCategoryId));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+            command.Parameters[4].Value = ((int)(SubCategoryId));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
+                command.Connection.Open();
             }
+            int returnValue;
             try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
+                returnValue = command.ExecuteNonQuery();
             }
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
+                    command.Connection.Close();
                 }
             }
+            return returnValue;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, int Price, string Description, string Image, int SubCategoryId, int Original_Id, string Original_Name, int Original_Price, string Original_Image, int Original_SubCategoryId, int Id) {
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Name));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Price));
-            if ((Description == null)) {
-                throw new global::System.ArgumentNullException("Description");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Description));
-            }
-            if ((Image == null)) {
-                throw new global::System.ArgumentNullException("Image");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Image));
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(SubCategoryId));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Id));
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Name));
-            }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Price));
-            if ((Original_Image == null)) {
-                throw new global::System.ArgumentNullException("Original_Image");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Image));
-            }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_SubCategoryId));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Id));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteProduct(int Id) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            command.Parameters[0].Value = ((int)(Id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
+                command.Connection.Open();
             }
+            int returnValue;
             try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
+                returnValue = command.ExecuteNonQuery();
             }
             finally {
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
+                    command.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, int Price, string Description, string Image, int SubCategoryId, int Original_Id, string Original_Name, int Original_Price, string Original_Image, int Original_SubCategoryId) {
-            return this.Update(Name, Price, Description, Image, SubCategoryId, Original_Id, Original_Name, Original_Price, Original_Image, Original_SubCategoryId, Original_Id);
+            return returnValue;
         }
     }
     
@@ -6573,7 +6667,9 @@ SELECT Id, Name, CreateUserId, CreateDate, DeleteDate FROM Roles WHERE (Id = @Id
             tableMapping.ColumnMappings.Add("CategoryId", "CategoryId");
             tableMapping.ColumnMappings.Add("CreateUserId", "CreateUserId");
             tableMapping.ColumnMappings.Add("CreateDate", "CreateDate");
-            tableMapping.ColumnMappings.Add("CategoryName", "CategoryName");
+            tableMapping.ColumnMappings.Add("DeleteDate", "DeleteDate");
+            tableMapping.ColumnMappings.Add("Category", "Category");
+            tableMapping.ColumnMappings.Add("User", "User");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -6587,11 +6683,12 @@ SELECT Id, Name, CreateUserId, CreateDate, DeleteDate FROM Roles WHERE (Id = @Id
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT [Id]\r\n      ,[Name]\r\n      ,[CategoryId]\r\n      ,[CreateUserId]\r\n      ,[C" +
-                "reateDate]\r\n      ,[CategoryName]\r\n  FROM [dbo].[Vwtestview]";
+            this._commandCollection[0].CommandText = "SELECT SC.*,C.[Name] Category , Concat(U.[Name]+\' \',U.[Surname] ) [User]\r\n  FROM " +
+                "[dbo].[SubCategories] SC\r\n  join Categories C on C.Id=SC.CategoryId\r\n  join User" +
+                "s U on U.Id=SC.CreateUserId\r\nWhere SC.[DeleteDate] is null";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -6601,6 +6698,28 @@ SELECT Id, Name, CreateUserId, CreateDate, DeleteDate FROM Roles WHERE (Id = @Id
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CategoryId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CategoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CreateUserId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "UPDATE [dbo].[SubCategories]\r\n   SET \r\n      [DeleteDate] = getdate()\r\n WHERE [Id" +
+                "]=@Id";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "UPDATE [dbo].[SubCategories]\r\n   SET [Name] =@name\r\n WHERE [Id]=@Id";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT SC.*,C.[Name] Category , Concat(U.[Name]+' ',U.[Surname] ) [User]
+  FROM [dbo].[SubCategories] SC
+  join Categories C on C.Id=SC.CategoryId
+  join Users U on U.Id=SC.CreateUserId
+Where SC.[DeleteDate] is null
+and (@name is null or sc.Name LIKE @name+ '%')";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6630,6 +6749,25 @@ SELECT Id, Name, CreateUserId, CreateDate, DeleteDate FROM Roles WHERE (Id = @Id
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBySearchSubC(ContactHomeDataSet.SubCategoriesDataTable dataTable, string name) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((name == null)) {
+                throw new global::System.ArgumentNullException("name");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(name));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int AddSubCategory(string Name, int CategoryId, int userId) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
@@ -6641,6 +6779,60 @@ SELECT Id, Name, CreateUserId, CreateDate, DeleteDate FROM Roles WHERE (Id = @Id
             }
             command.Parameters[1].Value = ((int)(CategoryId));
             command.Parameters[2].Value = ((int)(userId));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteSubCategory(int Id) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            command.Parameters[0].Value = ((int)(Id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int EditSubCategory(string name, int Id) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            if ((name == null)) {
+                throw new global::System.ArgumentNullException("name");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(name));
+            }
+            command.Parameters[1].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7514,8 +7706,6 @@ SELECT Id, Email, Password, Name, Surname, GenderId, RoleId, ActivationKey, Acti
         
         private GendersTableAdapter _gendersTableAdapter;
         
-        private ProductsTableAdapter _productsTableAdapter;
-        
         private RolesTableAdapter _rolesTableAdapter;
         
         private UsersTableAdapter _usersTableAdapter;
@@ -7560,20 +7750,6 @@ SELECT Id, Email, Password, Name, Surname, GenderId, RoleId, ActivationKey, Acti
             }
             set {
                 this._gendersTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public ProductsTableAdapter ProductsTableAdapter {
-            get {
-                return this._productsTableAdapter;
-            }
-            set {
-                this._productsTableAdapter = value;
             }
         }
         
@@ -7632,10 +7808,6 @@ SELECT Id, Email, Password, Name, Surname, GenderId, RoleId, ActivationKey, Acti
                             && (this._gendersTableAdapter.Connection != null))) {
                     return this._gendersTableAdapter.Connection;
                 }
-                if (((this._productsTableAdapter != null) 
-                            && (this._productsTableAdapter.Connection != null))) {
-                    return this._productsTableAdapter.Connection;
-                }
                 if (((this._rolesTableAdapter != null) 
                             && (this._rolesTableAdapter.Connection != null))) {
                     return this._rolesTableAdapter.Connection;
@@ -7661,9 +7833,6 @@ SELECT Id, Email, Password, Name, Surname, GenderId, RoleId, ActivationKey, Acti
                     count = (count + 1);
                 }
                 if ((this._gendersTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._productsTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._rolesTableAdapter != null)) {
@@ -7719,15 +7888,6 @@ SELECT Id, Email, Password, Name, Surname, GenderId, RoleId, ActivationKey, Acti
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._productsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Products.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._productsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             return result;
         }
         
@@ -7770,14 +7930,6 @@ SELECT Id, Email, Password, Name, Surname, GenderId, RoleId, ActivationKey, Acti
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._productsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Products.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._productsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             return result;
         }
         
@@ -7788,14 +7940,6 @@ SELECT Id, Email, Password, Name, Surname, GenderId, RoleId, ActivationKey, Acti
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(ContactHomeDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._productsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Products.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._productsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._categoriesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Categories.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -7877,11 +8021,6 @@ SELECT Id, Email, Password, Name, Surname, GenderId, RoleId, ActivationKey, Acti
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._productsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._productsTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             if (((this._rolesTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._rolesTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -7940,15 +8079,6 @@ SELECT Id, Email, Password, Name, Surname, GenderId, RoleId, ActivationKey, Acti
                     if (this._gendersTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._gendersTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._gendersTableAdapter.Adapter);
-                    }
-                }
-                if ((this._productsTableAdapter != null)) {
-                    revertConnections.Add(this._productsTableAdapter, this._productsTableAdapter.Connection);
-                    this._productsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._productsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._productsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._productsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._productsTableAdapter.Adapter);
                     }
                 }
                 if ((this._rolesTableAdapter != null)) {
@@ -8034,10 +8164,6 @@ SELECT Id, Email, Password, Name, Surname, GenderId, RoleId, ActivationKey, Acti
                 if ((this._gendersTableAdapter != null)) {
                     this._gendersTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._gendersTableAdapter]));
                     this._gendersTableAdapter.Transaction = null;
-                }
-                if ((this._productsTableAdapter != null)) {
-                    this._productsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._productsTableAdapter]));
-                    this._productsTableAdapter.Transaction = null;
                 }
                 if ((this._rolesTableAdapter != null)) {
                     this._rolesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._rolesTableAdapter]));

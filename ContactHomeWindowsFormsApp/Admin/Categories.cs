@@ -23,38 +23,34 @@ namespace ContactHomeWindowsFormsApp.Admin
 
         }
 
-        private void btnAddCategory_Click(object sender, EventArgs e)
+        private void btnAddCategory_Click(object sender, EventArgs e)  //Add Category
         {
-            
             categoriesTableAdapter.AddCategory(txtBNameCategory.Text,Program.UserId);
             this.categoriesTableAdapter.Fill(this.contactHomeDataSet.Categories);
 
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-        }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            categoriesTableAdapter.FillBySearchCategory(this.contactHomeDataSet.Categories,txtBNameCategory.Text);
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)  ///Edit Category
         {
             var current = categoriesBindingSource.GetCurrentnRow<CategoriesRow>();
             categoriesTableAdapter.EditCategory(txtBNameCategory.Text, current.Id);
-             btnEdit.Enabled = btnDelete.Enabled = false;
-            this.Tag = null;
-            this.categoriesTableAdapter.Fill(this.contactHomeDataSet.Categories);
-
-
+            btnEdit.Enabled = btnDelete.Enabled = false;
+            //this.Tag = null;
             MessageBox.Show(this.Tag?.ToString());
+            this.categoriesTableAdapter.Fill(this.contactHomeDataSet.Categories);
 
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+
+        private void btnSearch_Click(object sender, EventArgs e)       //Search Category
+        { 
+            categoriesTableAdapter.FillBySearchCategory(this.contactHomeDataSet.Categories,txtBNameCategory.Text);
+        }
+
+       
+
+        private void btnDelete_Click(object sender, EventArgs e)         //Delete Category
         {
             if (MessageBox.Show("Are you sure delete row?")==DialogResult.OK)
             {
@@ -65,15 +61,24 @@ namespace ContactHomeWindowsFormsApp.Admin
             }
             else
                 Application.Exit();
-
-
+            
         }
-
+                                                                                    ///Double Click
         private void dataGridViewCategory_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             this.Tag = dataGridViewCategory.Rows[e.RowIndex].Cells[0].Value?.ToString();
             txtBNameCategory.Text= dataGridViewCategory.Rows[e.RowIndex].Cells[1].Value?.ToString();
             btnEdit.Enabled = btnDelete.Enabled = true;
+        }
+                       
+        private void btnBack_Click(object sender, EventArgs e)     ///Back button
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void dataGridViewCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

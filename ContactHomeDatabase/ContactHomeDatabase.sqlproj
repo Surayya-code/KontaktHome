@@ -75,4 +75,7 @@
   <ItemGroup>
     <PostDeploy Include="Init.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ContactHomeDatabase.publish.xml" />
+  </ItemGroup>
 </Project>

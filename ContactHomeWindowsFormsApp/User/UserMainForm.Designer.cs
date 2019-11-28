@@ -169,7 +169,6 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CategoriesTableAdapter = this.categoriesTableAdapter1;
             this.tableAdapterManager.GendersTableAdapter = null;
-            this.tableAdapterManager.ProductsTableAdapter = null;
             this.tableAdapterManager.RolesTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = ContactHomeWindowsFormsApp.Data.ContactHomeDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsersTableAdapter = null;

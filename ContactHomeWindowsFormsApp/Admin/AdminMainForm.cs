@@ -52,6 +52,14 @@ namespace ContactHomeWindowsFormsApp.Admin
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (var frm = new All_Products())
+            {
+                frm.ShowDialog();
+            }
+        }
+
         //private void MainForm_Load(object sender, EventArgs e)
         //{
 

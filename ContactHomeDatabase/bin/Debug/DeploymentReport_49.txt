@@ -1,0 +1,25 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[Products]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Table rebuild
+       [dbo].[Products] (Table)
+
+** Supporting actions
+     Drop
+       [dbo].[FK_Products_SubCategories] (Foreign Key)
+     Create
+       [dbo].[FK_Products_SubCategories] (Foreign Key)
+     Refresh
+       [dbo].[VwProducts] (View)
+       [dbo].[spAddImage] (Procedure)
+
+If this deployment is executed, changes to [dbo].[Products] might introduce run-time errors in [dbo].[VwProductSCategory].
+
