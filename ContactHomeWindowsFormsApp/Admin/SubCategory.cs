@@ -7,6 +7,8 @@ namespace ContactHomeWindowsFormsApp.Admin
 {
     public partial class SubCategory : Form
     {
+        public int Id { get; internal set; }
+
         public SubCategory()
         {
             InitializeComponent();

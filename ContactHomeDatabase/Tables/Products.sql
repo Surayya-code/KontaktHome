@@ -7,5 +7,8 @@
 	[Image] IMAGE not null, 
 	[DeleteDate] datetime,
     [SubCategoryId] INT NOT NULL, 
+	
     CONSTRAINT [FK_Products_SubCategories] FOREIGN KEY ([SubCategoryId]) REFERENCES [SubCategories]([Id])
+	
+    
 )

@@ -54,7 +54,15 @@ namespace ContactHomeWindowsFormsApp.Admin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (var frm = new All_Products())
+            using (var frm = new All_ProductsForm())
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void btnEntry_Click(object sender, EventArgs e)
+        {
+            using (var frm = new MainAllProductsForm())
             {
                 frm.ShowDialog();
             }

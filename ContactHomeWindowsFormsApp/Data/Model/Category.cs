@@ -15,5 +15,6 @@ namespace ContactHomeWindowsFormsApp.Data.Model
         {
             return Name;     
         }
+
     }
 }

@@ -71,6 +71,7 @@
     <Build Include="Tables\Products.sql" />
     <Build Include="Tables\SubCategories.sql" />
     <Build Include="View\VwProducts.sql" />
+    <Build Include="Tables\All Products Table.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Init.sql" />

@@ -1,6 +1,6 @@
 ﻿namespace ContactHomeWindowsFormsApp.Admin
 {
-    partial class All_Products
+    partial class All_ProductsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(All_Products));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(All_ProductsForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBack = new System.Windows.Forms.Button();
             this.btnSetImage = new System.Windows.Forms.Button();
             this.numericPrice = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,35 +49,31 @@
             this.lblCategory = new System.Windows.Forms.Label();
             this.txtProductAdd = new System.Windows.Forms.TextBox();
             this.cmbSubcategoryChos = new System.Windows.Forms.ComboBox();
-            this.subCategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contactHomeDataSet = new ContactHomeWindowsFormsApp.Data.ContactHomeDataSet();
             this.cmbCategoryChose = new System.Windows.Forms.ComboBox();
-            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contactHomeDataSet = new ContactHomeWindowsFormsApp.Data.ContactHomeDataSet();
+            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriesTableAdapter = new ContactHomeWindowsFormsApp.Data.ContactHomeDataSetTableAdapters.CategoriesTableAdapter();
+            this.subCategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.subCategoriesTableAdapter = new ContactHomeWindowsFormsApp.Data.ContactHomeDataSetTableAdapters.SubCategoriesTableAdapter();
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productsTableAdapter = new ContactHomeWindowsFormsApp.Data.ContactHomeDataSetTableAdapters.ProductsTableAdapter();
-            this.fKProductsSubCategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnBack = new System.Windows.Forms.Button();
             this.ıdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ımageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.deleteDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subCategoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fileDialog = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProducts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.subCategoriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactHomeDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCategoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKProductsSubCategoriesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -106,6 +103,18 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // btnBack
+            // 
+            this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBack.Location = new System.Drawing.Point(13, 368);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(69, 24);
+            this.btnBack.TabIndex = 25;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // btnSetImage
             // 
             this.btnSetImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -115,7 +124,6 @@
             this.btnSetImage.TabIndex = 24;
             this.btnSetImage.Text = "Set Image";
             this.btnSetImage.UseVisualStyleBackColor = true;
-            this.btnSetImage.Click += new System.EventHandler(this.btnSetImage_Click);
             // 
             // numericPrice
             // 
@@ -151,7 +159,6 @@
             this.btnAddProduct.TabIndex = 21;
             this.btnAddProduct.Text = "Add";
             this.btnAddProduct.UseVisualStyleBackColor = true;
-            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // btnDeleteProduct
             // 
@@ -162,7 +169,6 @@
             this.btnDeleteProduct.TabIndex = 18;
             this.btnDeleteProduct.Text = "Delete";
             this.btnDeleteProduct.UseVisualStyleBackColor = true;
-            this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
             // 
             // btnSearchProduct
             // 
@@ -173,7 +179,6 @@
             this.btnSearchProduct.TabIndex = 19;
             this.btnSearchProduct.Text = "Search";
             this.btnSearchProduct.UseVisualStyleBackColor = true;
-            this.btnSearchProduct.Click += new System.EventHandler(this.btnSearchProduct_Click);
             // 
             // btnEditProduct
             // 
@@ -184,13 +189,13 @@
             this.btnEditProduct.TabIndex = 20;
             this.btnEditProduct.Text = "Edit";
             this.btnEditProduct.UseVisualStyleBackColor = true;
-            this.btnEditProduct.Click += new System.EventHandler(this.btnEditProduct_Click);
             // 
             // pictureProducts
             // 
             this.pictureProducts.Location = new System.Drawing.Point(191, 59);
             this.pictureProducts.Name = "pictureProducts";
             this.pictureProducts.Size = new System.Drawing.Size(120, 137);
+            this.pictureProducts.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureProducts.TabIndex = 17;
             this.pictureProducts.TabStop = false;
             // 
@@ -282,32 +287,17 @@
             this.cmbSubcategoryChos.TabIndex = 1;
             this.cmbSubcategoryChos.ValueMember = "Id";
             // 
-            // subCategoriesBindingSource
-            // 
-            this.subCategoriesBindingSource.DataMember = "SubCategories";
-            this.subCategoriesBindingSource.DataSource = this.contactHomeDataSet;
-            // 
-            // contactHomeDataSet
-            // 
-            this.contactHomeDataSet.DataSetName = "ContactHomeDataSet";
-            this.contactHomeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // cmbCategoryChose
             // 
             this.cmbCategoryChose.DataSource = this.categoriesBindingSource;
             this.cmbCategoryChose.DisplayMember = "Name";
             this.cmbCategoryChose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategoryChose.FormattingEnabled = true;
-            this.cmbCategoryChose.Location = new System.Drawing.Point(13, 77);
+            this.cmbCategoryChose.Location = new System.Drawing.Point(11, 77);
             this.cmbCategoryChose.Name = "cmbCategoryChose";
             this.cmbCategoryChose.Size = new System.Drawing.Size(160, 24);
             this.cmbCategoryChose.TabIndex = 0;
             this.cmbCategoryChose.ValueMember = "Id";
-            // 
-            // categoriesBindingSource
-            // 
-            this.categoriesBindingSource.DataMember = "Categories";
-            this.categoriesBindingSource.DataSource = this.contactHomeDataSet;
             // 
             // dgvProducts
             // 
@@ -318,53 +308,47 @@
             this.nameDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
-            this.ımageDataGridViewTextBoxColumn,
-            this.subCategoryIdDataGridViewTextBoxColumn,
-            this.categoryIdDataGridViewTextBoxColumn,
-            this.categoryNameDataGridViewTextBoxColumn});
+            this.dataGridViewImageColumn1,
+            this.deleteDateDataGridViewTextBoxColumn,
+            this.subCategoryIdDataGridViewTextBoxColumn});
+            this.dgvProducts.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvProducts.DataSource = this.productsBindingSource;
-            this.dgvProducts.Location = new System.Drawing.Point(376, 27);
+            this.dgvProducts.Location = new System.Drawing.Point(357, 25);
             this.dgvProducts.Name = "dgvProducts";
-            this.dgvProducts.Size = new System.Drawing.Size(558, 349);
+            this.dgvProducts.Size = new System.Drawing.Size(813, 392);
             this.dgvProducts.TabIndex = 1;
+            // 
+            // contactHomeDataSet
+            // 
+            this.contactHomeDataSet.DataSetName = "ContactHomeDataSet";
+            this.contactHomeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // categoriesBindingSource
+            // 
+            this.categoriesBindingSource.DataMember = "Categories";
+            this.categoriesBindingSource.DataSource = this.contactHomeDataSet;
+            // 
+            // categoriesTableAdapter
+            // 
+            this.categoriesTableAdapter.ClearBeforeFill = true;
+            // 
+            // subCategoriesBindingSource
+            // 
+            this.subCategoriesBindingSource.DataMember = "SubCategories";
+            this.subCategoriesBindingSource.DataSource = this.contactHomeDataSet;
+            // 
+            // subCategoriesTableAdapter
+            // 
+            this.subCategoriesTableAdapter.ClearBeforeFill = true;
             // 
             // productsBindingSource
             // 
             this.productsBindingSource.DataMember = "Products";
             this.productsBindingSource.DataSource = this.contactHomeDataSet;
             // 
-            // categoriesTableAdapter
-            // 
-            this.categoriesTableAdapter.ClearBeforeFill = true;
-            // 
-            // subCategoriesTableAdapter
-            // 
-            this.subCategoriesTableAdapter.ClearBeforeFill = true;
-            // 
             // productsTableAdapter
             // 
             this.productsTableAdapter.ClearBeforeFill = true;
-            // 
-            // fKProductsSubCategoriesBindingSource
-            // 
-            this.fKProductsSubCategoriesBindingSource.DataMember = "FK_Products_SubCategories";
-            this.fKProductsSubCategoriesBindingSource.DataSource = this.subCategoriesBindingSource;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
-            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBack.Location = new System.Drawing.Point(13, 368);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(69, 24);
-            this.btnBack.TabIndex = 25;
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // ıdDataGridViewTextBoxColumn
             // 
@@ -372,7 +356,6 @@
             this.ıdDataGridViewTextBoxColumn.HeaderText = "Id";
             this.ıdDataGridViewTextBoxColumn.Name = "ıdDataGridViewTextBoxColumn";
             this.ıdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ıdDataGridViewTextBoxColumn.Visible = false;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -392,33 +375,29 @@
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             // 
-            // ımageDataGridViewTextBoxColumn
+            // dataGridViewImageColumn1
             // 
-            this.ımageDataGridViewTextBoxColumn.DataPropertyName = "Image";
-            this.ımageDataGridViewTextBoxColumn.HeaderText = "Image";
-            this.ımageDataGridViewTextBoxColumn.Name = "ımageDataGridViewTextBoxColumn";
+            this.dataGridViewImageColumn1.DataPropertyName = "Image";
+            this.dataGridViewImageColumn1.HeaderText = "Image";
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
+            // deleteDateDataGridViewTextBoxColumn
+            // 
+            this.deleteDateDataGridViewTextBoxColumn.DataPropertyName = "DeleteDate";
+            this.deleteDateDataGridViewTextBoxColumn.HeaderText = "DeleteDate";
+            this.deleteDateDataGridViewTextBoxColumn.Name = "deleteDateDataGridViewTextBoxColumn";
             // 
             // subCategoryIdDataGridViewTextBoxColumn
             // 
             this.subCategoryIdDataGridViewTextBoxColumn.DataPropertyName = "SubCategoryId";
             this.subCategoryIdDataGridViewTextBoxColumn.HeaderText = "SubCategoryId";
             this.subCategoryIdDataGridViewTextBoxColumn.Name = "subCategoryIdDataGridViewTextBoxColumn";
-            this.subCategoryIdDataGridViewTextBoxColumn.Visible = false;
             // 
-            // categoryIdDataGridViewTextBoxColumn
+            // fileDialog
             // 
-            this.categoryIdDataGridViewTextBoxColumn.DataPropertyName = "CategoryId";
-            this.categoryIdDataGridViewTextBoxColumn.HeaderText = "CategoryId";
-            this.categoryIdDataGridViewTextBoxColumn.Name = "categoryIdDataGridViewTextBoxColumn";
-            this.categoryIdDataGridViewTextBoxColumn.Visible = false;
+            this.fileDialog.FileName = "openFileDialog1";
             // 
-            // categoryNameDataGridViewTextBoxColumn
-            // 
-            this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
-            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "CategoryName";
-            this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
-            // 
-            // All_Products
+            // All_ProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -426,19 +405,18 @@
             this.ClientSize = new System.Drawing.Size(1263, 455);
             this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.groupBox1);
-            this.Name = "All_Products";
+            this.Name = "All_ProductsForm";
             this.Text = "All_Products";
-            this.Load += new System.EventHandler(this.All_Products_Load);
+            this.Load += new System.EventHandler(this.All_ProductsForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProducts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.subCategoriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactHomeDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCategoriesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fKProductsSubCategoriesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -464,6 +442,9 @@
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numericPrice;
+        private System.Windows.Forms.Button btnSetImage;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.DataGridViewImageColumn ımageDataGridViewImageColumn;
         private Data.ContactHomeDataSet contactHomeDataSet;
         private System.Windows.Forms.BindingSource categoriesBindingSource;
         private Data.ContactHomeDataSetTableAdapters.CategoriesTableAdapter categoriesTableAdapter;
@@ -471,18 +452,13 @@
         private Data.ContactHomeDataSetTableAdapters.SubCategoriesTableAdapter subCategoriesTableAdapter;
         private System.Windows.Forms.BindingSource productsBindingSource;
         private Data.ContactHomeDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subCategoryNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnSetImage;
-        private System.Windows.Forms.BindingSource fKProductsSubCategoriesBindingSource;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.DataGridViewTextBoxColumn ıdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ımageDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn deleteDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subCategoryIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.OpenFileDialog fileDialog;
     }
 }

@@ -1,14 +1,9 @@
-﻿using ContactHomeWindowsFormsApp.Core.Extensions;
+﻿using ContactHomeWindowsFormsApp.Admin;
+using ContactHomeWindowsFormsApp.Core.Controls;
+using ContactHomeWindowsFormsApp.Core.Extensions;
 using ContactHomeWindowsFormsApp.Data.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ContactHomeWindowsFormsApp.User
@@ -18,98 +13,83 @@ namespace ContactHomeWindowsFormsApp.User
         public UserMainForm()
         {
             InitializeComponent();
-            
+
+            btnSearchh.RoundControl(btnSearchh.Width, btnSearchh.Height, 10, 10);
+            btnDelete.RoundControl(btnDelete.Width, btnDelete.Height, 10, 10);
+
+
+            //        for (int i = 0; i<20; i++)
+            //{
+            //             Random rnd = new Random();
+
+            //             //biz sekilleri dbo-dan cekib gotureceyik
+            //             Image img = Image.FromFile(@"C:\Users\suray\Desktop\ContactHomeWinProject\Mi Band 4");
+
+            //             Product product = new Product();
+            //             product.Id = i + 1;
+            //             product.NameProduct = $"Product-{i + 1}";
+            //             product.Price =(decimal)rnd.NextDouble()*1000M;
+
+            //             product.Picture = img;
+
+            //             product.Click += product1_Click;
+            //             flowLayoutPanel1.Controls.Add(product);
+
+            //         }
         }
 
 
-
-        //private void btnAdd_Click(object sender, EventArgs e)//category check boxA elave etmek
-        //{
-        //    categoriesTableAdapter1.Fill(DataSet.Categories);
-
-        //    //checkedListBox1.Items.Clear();
-        //    //foreach (var item in DataSet.Categories)
-        //    //{
-        //    //    var category = new Category();
-        //    //    category.Id = item.Id;
-        //    //    category.Name = item.Name;
-        //    //    checkedListBox1.Items.Add(category);
-        //    //}
-        //}
-
-
-        //private void btnSelected_Click(object sender, EventArgs e)
-        //{
-        //    StringBuilder builder= new StringBuilder();
-
-        //    foreach (Category category in checkedListBox1.CheckedItems)
-        //    {
-                
-        //        builder.Append($",{category.Id}");//////id niye qebul elemirsen a bala? men ki sene id teyin etmisim//
-        //    }
-        //    MessageBox.Show(builder.ToString().Substring(1));
-        //}
-
-        private void btnSetas_Click(object sender, EventArgs e)
+        private void product1_Click(object sender, System.EventArgs e)
         {
-            if (FileDialog.ShowDialog()==DialogResult.OK)
-            {
-                pictureBox1.ImageLocation = FileDialog.FileName;
-            }
-            else
-            pictureBox1.Image=null;
+            Product product = sender as Product;
+            MessageBox.Show($"{product.Id}/{product.NameProduct}/{product.Price}");
         }
 
-        private void btnSeveAs_Click(object sender, EventArgs e)
+        private void lblWriteUs_Click(object sender, EventArgs e)
         {
-            if (FileDialog.ShowDialog() == DialogResult.OK)
-            {
-                Image image =Image.FromFile(FileDialog.FileName);
-                pictureBox1.Image = image;
-            }
-            else
-            pictureBox1.Image = null;
-        }
-
-        //private void btnImageToBufer_Click(object sender, EventArgs e)
-        //{
-        //    if (FileDialog.ShowDialog() == DialogResult.OK)
-        //    {
-        //        //Db gondermek ucun byte seklinde gormeliyik faylimizi,ona gore de:
-        //        using (var stream = new MemoryStream())
-        //        {
-        //            Image image = Image.FromFile(FileDialog.FileName);
-        //            image.Save(stream, image.RawFormat);
-        //            var buffer = stream.GetBuffer();
-                    
-        //        }
-        //    }
-
-        
-        private void btnImageToBufer_Click(object sender, EventArgs e)
-        {
-            if (FileDialog.ShowDialog() == DialogResult.OK)
-            {
-                var buff = Image.FromFile(FileDialog.FileName).GetBuffer();
-                            
-            }
-
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'DataSet.VwProducts' table. You can move, or remove it, as needed.
-            this.vwProductsTableAdapter.Fill(this.DataSet.VwProducts);
-            //TODO: This line of code loads data into the 'DataSet.VwFiles' table.You can move, or remove it, as needed.
-            //this.vwFTableAdapter.Fill(this.DataSet.VwFiles);
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            using (var frm=new HomePageForm())
+            using (var frm = new WriteUsForm())
             {
                 frm.ShowDialog();
+            }
+        }
+
+
+
+        private void btnSearchh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void product9_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void HomePageForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnChoose_Click(object sender, EventArgs e)
+        {
+            categoriesTableAdapter1.Fill(dataSet.Categories);
+           
+
+            //checkedListCategories.Items.Clear();
+            foreach (var item in dataSet.Categories)
+            {
+                var category = new Category();
+                category.Id = item.Id;
+                category.Name = item.Name;
+                checkedListCategories.Items.Add(category);
+            }
+
+            subCategoriesTableAdapter1.Fill(dataSet.SubCategories);
+            foreach (var item in dataSet.SubCategories)
+            {
+                var subcategory = new SubCategory();
+                subcategory.Id = item.Id;
+                subcategory.Name = item.Name;
+                checkedListSubCategories.Items.Add(subcategory);
             }
         }
     }

@@ -25,11 +25,12 @@ namespace ContactHomeWindowsFormsApp.Core.Extensions
         {
             if (image==null)
             {
+                //MessageBox.Show("sekil secile bilmedi");
                 return null;
             }
             using (var stream = new MemoryStream())  //from image to buffer
             {
-                image.Save(stream, image.RawFormat);
+                image.Save(stream,image.RawFormat);
                 var buffer = stream.GetBuffer();
                 return buffer;
             }

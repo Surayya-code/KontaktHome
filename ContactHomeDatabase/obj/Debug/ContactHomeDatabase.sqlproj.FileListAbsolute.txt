@@ -13,7 +13,3 @@ C:\Users\suray\source\repos\KontaktHome\ContactHomeDatabase\bin\Debug\ContactHom
 C:\Users\suray\source\repos\KontaktHome\ContactHomeDatabase\obj\Debug\ContactHomeDatabase.sqlprojAssemblyReference.cache
 C:\Users\suray\source\repos\KontaktHome\ContactHomeDatabase\obj\Debug\ContactHomeDatabase.dll
 C:\Users\suray\source\repos\KontaktHome\ContactHomeDatabase\obj\Debug\ContactHomeDatabase.pdb
-C:\Users\suray\source\repos\KontaktHome\ContactHomeDatabase\obj\Debug\Model.xml
-C:\Users\suray\source\repos\KontaktHome\ContactHomeDatabase\obj\Debug\refactor.xml
-C:\Users\suray\source\repos\KontaktHome\ContactHomeDatabase\obj\Debug\postdeploy.sql
-C:\Users\suray\source\repos\KontaktHome\ContactHomeDatabase\obj\Debug\predeploy.sql

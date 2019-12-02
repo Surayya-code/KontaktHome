@@ -20,11 +20,13 @@ C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\Con
 C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.Core.Controls.Product.resources
 C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.LoginForm.resources
 C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.Properties.Resources.resources
-C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.User.HomePageForm.resources
 C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.User.UserMainForm.resources
 C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.csproj.GenerateResource.cache
 C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.exe
 C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.pdb
 C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.Admin.SubCategory.resources
 C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.Admin.CategoriesForm.resources
-C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.Admin.All_Products.resources
+C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.User.WriteUsForm.resources
+C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.Admin.All_ProductsForm.resources
+C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.Admin.MainAllProductsForm.resources
+C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.User.User_Registr_Form.resources

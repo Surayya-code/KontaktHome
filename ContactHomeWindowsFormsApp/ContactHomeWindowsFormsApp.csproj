@@ -79,6 +79,12 @@
     <Compile Include="Admin\AdminMainForm.Designer.cs">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\MainAllProductsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\MainAllProductsForm.Designer.cs">
+      <DependentUpon>MainAllProductsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\SubCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,7 @@
       <DependentUpon>ContactHomeDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Data\Model\Category.cs" />
+    <Compile Include="Data\Model\SubCategories.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,11 +118,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User\HomePageForm.cs">
+    <Compile Include="User\User Registration-Sing UpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User\HomePageForm.Designer.cs">
-      <DependentUpon>HomePageForm.cs</DependentUpon>
+    <Compile Include="User\User Registration-Sing UpForm.Designer.cs">
+      <DependentUpon>User Registration-Sing UpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\WriteUsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\WriteUsForm.Designer.cs">
+      <DependentUpon>WriteUsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="User\UserMainForm.cs">
       <SubType>Form</SubType>
@@ -131,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\AdminMainForm.resx">
       <DependentUpon>AdminMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\MainAllProductsForm.resx">
+      <DependentUpon>MainAllProductsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\SubCategory.resx">
       <DependentUpon>SubCategory.cs</DependentUpon>
@@ -150,8 +166,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="User\HomePageForm.resx">
-      <DependentUpon>HomePageForm.cs</DependentUpon>
+    <EmbeddedResource Include="User\User Registration-Sing UpForm.resx">
+      <DependentUpon>User Registration-Sing UpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\WriteUsForm.resx">
+      <DependentUpon>WriteUsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\UserMainForm.resx">
       <DependentUpon>UserMainForm.cs</DependentUpon>
@@ -191,6 +210,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Admin\Image\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
