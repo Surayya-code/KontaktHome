@@ -20,7 +20,8 @@ namespace ContactHomeWindowsFormsApp
             this.RoundControl(this.Width,this.Height,20,20);
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        
+private void btnCancel_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Close Program?", "Request", 0, MessageBoxIcon.Question) == DialogResult.OK) ;
             {
@@ -56,7 +57,10 @@ namespace ContactHomeWindowsFormsApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
+            using (var frm = new ForTeacher())
+            {
+                frm.ShowDialog();
+            }
             try
             {
                 string hashPassword = txtPassword.Text.Hash();
@@ -119,5 +123,6 @@ namespace ContactHomeWindowsFormsApp
         {
 
         }
+        
     }
 }

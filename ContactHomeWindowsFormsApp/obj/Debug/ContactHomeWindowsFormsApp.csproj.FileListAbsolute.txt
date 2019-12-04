@@ -30,3 +30,4 @@ C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\Con
 C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.Admin.All_ProductsForm.resources
 C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.Admin.MainAllProductsForm.resources
 C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.User.User_Registr_Form.resources
+C:\Users\suray\source\repos\KontaktHome\ContactHomeWindowsFormsApp\obj\Debug\ContactHomeWindowsFormsApp.ForTeacher.resources

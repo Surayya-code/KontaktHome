@@ -110,6 +110,12 @@
     </Compile>
     <Compile Include="Data\Model\Category.cs" />
     <Compile Include="Data\Model\SubCategories.cs" />
+    <Compile Include="ForTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForTeacher.Designer.cs">
+      <DependentUpon>ForTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Core\Controls\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForTeacher.resx">
+      <DependentUpon>ForTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
