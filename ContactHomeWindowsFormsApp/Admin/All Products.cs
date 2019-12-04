@@ -1,4 +1,5 @@
 ﻿using ContactHomeWindowsFormsApp.Core.Extensions;
+using ContactHomeWindowsFormsApp.Data.ContactHomeDataSetTableAdapters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,7 @@ namespace ContactHomeWindowsFormsApp.Admin
         public All_ProductsForm()
         {
             InitializeComponent();
+            dgvProducts.InitGrid();
         }
 
         //private void btnSetImage_Click(object sender, EventArgs e)   ///Set image
@@ -89,13 +91,39 @@ namespace ContactHomeWindowsFormsApp.Admin
 
         private void All_ProductsForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'contactHomeDataSet1.SubCategories' table. You can move, or remove it, as needed.
+            this.subCategoriesTableAdapter.Fill(this.contactHomeDataSet1.SubCategories);
+            // TODO: This line of code loads data into the 'contactHomeDataSet1.Categories' table. You can move, or remove it, as needed.
+            this.categoriesTableAdapter.Fill(this.contactHomeDataSet1.Categories);
             // TODO: This line of code loads data into the 'contactHomeDataSet.Products' table. You can move, or remove it, as needed.
             this.productsTableAdapter.Fill(this.contactHomeDataSet.Products);
-            // TODO: This line of code loads data into the 'contactHomeDataSet.SubCategories' table. You can move, or remove it, as needed.
-            this.subCategoriesTableAdapter.Fill(this.contactHomeDataSet.SubCategories);
-            // TODO: This line of code loads data into the 'contactHomeDataSet.Categories' table. You can move, or remove it, as needed.
-            this.categoriesTableAdapter.Fill(this.contactHomeDataSet.Categories);
+            // TODO: This line of code loads data into the 'contactHomeDataSet.VwFiles' table. You can move, or remove it, as needed.
+            this.vwFilesTableAdapter.Fill(this.contactHomeDataSet.VwFiles);
 
+        }
+
+        private void btnSetImage_Click(object sender, EventArgs e)
+        {
+
+            if (fileDialog.ShowDialog()==DialogResult.OK)
+            {
+                var buff = Image.FromFile(fileDialog.FileName).GetBuffer();
+                using (var adp= new CommonAdapter())
+                {
+                    string fileName = Path.GetFileName(fileDialog.FileName);
+                    adp.spAddImage(fileName, buff, 1);  //todo add userid
+                    this.productsTableAdapter.Fill(this.contactHomeDataSet.Products);
+                    this.vwFilesTableAdapter.Fill(this.contactHomeDataSet.VwFiles);
+                }
+            }
+
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            var price = Convert.ToInt32(numericPrice.Value);
+            productsTableAdapter.AddProducts(txtProductAdd.Text, price, txtDescription.Text);
+            this.productsTableAdapter.Fill(this.contactHomeDataSet.Products);
         }
 
 

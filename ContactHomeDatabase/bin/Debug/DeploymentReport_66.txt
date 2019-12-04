@@ -1,0 +1,21 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [dbo].[Products].[Image] is being dropped, data loss could occur.
+
+** User actions
+     Alter
+       [dbo].[Products] (Table)
+
+** Supporting actions
+
+The column [dbo].[Products].[Image] is being dropped, data loss could occur.
+If this deployment is executed, changes to [dbo].[Products] might introduce run-time errors in [dbo].[spAddImage].
+If this deployment is executed, changes to [dbo].[Products] might introduce run-time errors in [dbo].[VwProducts].
+If this deployment is executed, changes to [dbo].[Products] might introduce run-time errors in [dbo].[VwProductSCategory].
+

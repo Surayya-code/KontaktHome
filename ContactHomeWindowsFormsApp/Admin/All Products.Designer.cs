@@ -49,31 +49,37 @@
             this.lblCategory = new System.Windows.Forms.Label();
             this.txtProductAdd = new System.Windows.Forms.TextBox();
             this.cmbSubcategoryChos = new System.Windows.Forms.ComboBox();
-            this.cmbCategoryChose = new System.Windows.Forms.ComboBox();
-            this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.contactHomeDataSet = new ContactHomeWindowsFormsApp.Data.ContactHomeDataSet();
-            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoriesTableAdapter = new ContactHomeWindowsFormsApp.Data.ContactHomeDataSetTableAdapters.CategoriesTableAdapter();
             this.subCategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.subCategoriesTableAdapter = new ContactHomeWindowsFormsApp.Data.ContactHomeDataSetTableAdapters.SubCategoriesTableAdapter();
-            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productsTableAdapter = new ContactHomeWindowsFormsApp.Data.ContactHomeDataSetTableAdapters.ProductsTableAdapter();
+            this.contactHomeDataSet1 = new ContactHomeWindowsFormsApp.Data.ContactHomeDataSet();
+            this.cmbCategoryChose = new System.Windows.Forms.ComboBox();
+            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.ıdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.deleteDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subCategoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fileIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.contactHomeDataSet = new ContactHomeWindowsFormsApp.Data.ContactHomeDataSet();
+            this.vwFilesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vwFilesTableAdapter = new ContactHomeWindowsFormsApp.Data.ContactHomeDataSetTableAdapters.VwFilesTableAdapter();
+            this.tableAdapterManager = new ContactHomeWindowsFormsApp.Data.ContactHomeDataSetTableAdapters.TableAdapterManager();
+            this.productsTableAdapter = new ContactHomeWindowsFormsApp.Data.ContactHomeDataSetTableAdapters.ProductsTableAdapter();
+            this.categoriesTableAdapter = new ContactHomeWindowsFormsApp.Data.ContactHomeDataSetTableAdapters.CategoriesTableAdapter();
+            this.subCategoriesTableAdapter = new ContactHomeWindowsFormsApp.Data.ContactHomeDataSetTableAdapters.SubCategoriesTableAdapter();
             this.fileDialog = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProducts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contactHomeDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subCategoriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactHomeDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactHomeDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwFilesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -99,7 +105,7 @@
             this.groupBox1.Controls.Add(this.cmbCategoryChose);
             this.groupBox1.Location = new System.Drawing.Point(27, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(324, 418);
+            this.groupBox1.Size = new System.Drawing.Size(324, 432);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -124,6 +130,7 @@
             this.btnSetImage.TabIndex = 24;
             this.btnSetImage.Text = "Set Image";
             this.btnSetImage.UseVisualStyleBackColor = true;
+            this.btnSetImage.Click += new System.EventHandler(this.btnSetImage_Click);
             // 
             // numericPrice
             // 
@@ -159,6 +166,7 @@
             this.btnAddProduct.TabIndex = 21;
             this.btnAddProduct.Text = "Add";
             this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // btnDeleteProduct
             // 
@@ -287,6 +295,16 @@
             this.cmbSubcategoryChos.TabIndex = 1;
             this.cmbSubcategoryChos.ValueMember = "Id";
             // 
+            // subCategoriesBindingSource
+            // 
+            this.subCategoriesBindingSource.DataMember = "SubCategories";
+            this.subCategoriesBindingSource.DataSource = this.contactHomeDataSet1;
+            // 
+            // contactHomeDataSet1
+            // 
+            this.contactHomeDataSet1.DataSetName = "ContactHomeDataSet";
+            this.contactHomeDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // cmbCategoryChose
             // 
             this.cmbCategoryChose.DataSource = this.categoriesBindingSource;
@@ -299,6 +317,11 @@
             this.cmbCategoryChose.TabIndex = 0;
             this.cmbCategoryChose.ValueMember = "Id";
             // 
+            // categoriesBindingSource
+            // 
+            this.categoriesBindingSource.DataMember = "Categories";
+            this.categoriesBindingSource.DataSource = this.contactHomeDataSet1;
+            // 
             // dgvProducts
             // 
             this.dgvProducts.AutoGenerateColumns = false;
@@ -308,47 +331,15 @@
             this.nameDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
-            this.dataGridViewImageColumn1,
             this.deleteDateDataGridViewTextBoxColumn,
-            this.subCategoryIdDataGridViewTextBoxColumn});
+            this.subCategoryIdDataGridViewTextBoxColumn,
+            this.fileIdDataGridViewTextBoxColumn});
             this.dgvProducts.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvProducts.DataSource = this.productsBindingSource;
             this.dgvProducts.Location = new System.Drawing.Point(357, 25);
             this.dgvProducts.Name = "dgvProducts";
-            this.dgvProducts.Size = new System.Drawing.Size(813, 392);
+            this.dgvProducts.Size = new System.Drawing.Size(860, 392);
             this.dgvProducts.TabIndex = 1;
-            // 
-            // contactHomeDataSet
-            // 
-            this.contactHomeDataSet.DataSetName = "ContactHomeDataSet";
-            this.contactHomeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categoriesBindingSource
-            // 
-            this.categoriesBindingSource.DataMember = "Categories";
-            this.categoriesBindingSource.DataSource = this.contactHomeDataSet;
-            // 
-            // categoriesTableAdapter
-            // 
-            this.categoriesTableAdapter.ClearBeforeFill = true;
-            // 
-            // subCategoriesBindingSource
-            // 
-            this.subCategoriesBindingSource.DataMember = "SubCategories";
-            this.subCategoriesBindingSource.DataSource = this.contactHomeDataSet;
-            // 
-            // subCategoriesTableAdapter
-            // 
-            this.subCategoriesTableAdapter.ClearBeforeFill = true;
-            // 
-            // productsBindingSource
-            // 
-            this.productsBindingSource.DataMember = "Products";
-            this.productsBindingSource.DataSource = this.contactHomeDataSet;
-            // 
-            // productsTableAdapter
-            // 
-            this.productsTableAdapter.ClearBeforeFill = true;
             // 
             // ıdDataGridViewTextBoxColumn
             // 
@@ -375,12 +366,6 @@
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.DataPropertyName = "Image";
-            this.dataGridViewImageColumn1.HeaderText = "Image";
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            // 
             // deleteDateDataGridViewTextBoxColumn
             // 
             this.deleteDateDataGridViewTextBoxColumn.DataPropertyName = "DeleteDate";
@@ -393,6 +378,54 @@
             this.subCategoryIdDataGridViewTextBoxColumn.HeaderText = "SubCategoryId";
             this.subCategoryIdDataGridViewTextBoxColumn.Name = "subCategoryIdDataGridViewTextBoxColumn";
             // 
+            // fileIdDataGridViewTextBoxColumn
+            // 
+            this.fileIdDataGridViewTextBoxColumn.DataPropertyName = "FileId";
+            this.fileIdDataGridViewTextBoxColumn.HeaderText = "FileId";
+            this.fileIdDataGridViewTextBoxColumn.Name = "fileIdDataGridViewTextBoxColumn";
+            // 
+            // productsBindingSource
+            // 
+            this.productsBindingSource.DataMember = "Products";
+            this.productsBindingSource.DataSource = this.contactHomeDataSet;
+            // 
+            // contactHomeDataSet
+            // 
+            this.contactHomeDataSet.DataSetName = "ContactHomeDataSet";
+            this.contactHomeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vwFilesBindingSource
+            // 
+            this.vwFilesBindingSource.DataMember = "VwFiles";
+            this.vwFilesBindingSource.DataSource = this.contactHomeDataSet;
+            // 
+            // vwFilesTableAdapter
+            // 
+            this.vwFilesTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CategoriesTableAdapter = null;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.GendersTableAdapter = null;
+            this.tableAdapterManager.ProductsTableAdapter = null;
+            this.tableAdapterManager.RolesTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = ContactHomeWindowsFormsApp.Data.ContactHomeDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UsersTableAdapter = null;
+            // 
+            // productsTableAdapter
+            // 
+            this.productsTableAdapter.ClearBeforeFill = true;
+            // 
+            // categoriesTableAdapter
+            // 
+            this.categoriesTableAdapter.ClearBeforeFill = true;
+            // 
+            // subCategoriesTableAdapter
+            // 
+            this.subCategoriesTableAdapter.ClearBeforeFill = true;
+            // 
             // fileDialog
             // 
             this.fileDialog.FileName = "openFileDialog1";
@@ -402,7 +435,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1263, 455);
+            this.ClientSize = new System.Drawing.Size(1263, 485);
             this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.groupBox1);
             this.Name = "All_ProductsForm";
@@ -412,11 +445,13 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProducts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contactHomeDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subCategoriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactHomeDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contactHomeDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vwFilesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -446,19 +481,23 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.DataGridViewImageColumn ımageDataGridViewImageColumn;
         private Data.ContactHomeDataSet contactHomeDataSet;
-        private System.Windows.Forms.BindingSource categoriesBindingSource;
-        private Data.ContactHomeDataSetTableAdapters.CategoriesTableAdapter categoriesTableAdapter;
-        private System.Windows.Forms.BindingSource subCategoriesBindingSource;
-        private Data.ContactHomeDataSetTableAdapters.SubCategoriesTableAdapter subCategoriesTableAdapter;
+        private System.Windows.Forms.BindingSource vwFilesBindingSource;
+        private Data.ContactHomeDataSetTableAdapters.VwFilesTableAdapter vwFilesTableAdapter;
+        private Data.ContactHomeDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingSource productsBindingSource;
         private Data.ContactHomeDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn ıdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn deleteDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subCategoryIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fileIdDataGridViewTextBoxColumn;
+        private Data.ContactHomeDataSet contactHomeDataSet1;
+        private System.Windows.Forms.BindingSource categoriesBindingSource;
+        private Data.ContactHomeDataSetTableAdapters.CategoriesTableAdapter categoriesTableAdapter;
+        private System.Windows.Forms.BindingSource subCategoriesBindingSource;
+        private Data.ContactHomeDataSetTableAdapters.SubCategoriesTableAdapter subCategoriesTableAdapter;
         private System.Windows.Forms.OpenFileDialog fileDialog;
     }
 }

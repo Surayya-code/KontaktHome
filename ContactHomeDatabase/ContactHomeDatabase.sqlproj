@@ -67,16 +67,20 @@
     <Build Include="Procedures\spCheckUser.sql" />
     <Build Include="Tables\Categories.sql" />
     <Build Include="Procedures\SelectedItemsCategory.sql" />
-    <Build Include="Procedures\spAddImage.sql" />
     <Build Include="Tables\Products.sql" />
     <Build Include="Tables\SubCategories.sql" />
-    <Build Include="View\VwProducts.sql" />
     <Build Include="Tables\All Products Table.sql" />
+    <Build Include="Tables\Files.sql" />
+    <Build Include="Procedures\spAddImage.sql" />
+    <Build Include="View\VwFiles.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Init.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ContactHomeDatabase.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="ContactHomeDatabase.refactorlog" />
   </ItemGroup>
 </Project>
